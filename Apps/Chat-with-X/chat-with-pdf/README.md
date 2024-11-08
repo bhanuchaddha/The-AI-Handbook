@@ -132,6 +132,9 @@ This command launches a local Streamlit server and opens the application in your
 
 3. **Receive an Answer**: EmbedChain retrieves relevant sections from the PDF and generates a response based on the content, providing a seamless question-answering experience.
 
+
+![Example Execution](chat-with-pdf.gif)
+
 ---
 
 ### Conclusion
