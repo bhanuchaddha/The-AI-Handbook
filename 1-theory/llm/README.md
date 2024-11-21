@@ -1,4 +1,5 @@
-**AI Unlocked: Demystifying Large Language Models**
+# AI Unlocked: Demystifying Large Language Models
+![AI Unlocked: Demystifying Large Language Models](images/1/ai-unlocked.jpg)
 
 Welcome to "AI Unlocked: Demystifying Large Language Models," an in-depth series designed to unravel the complexities of Large Language Models (LLMs). Whether you're just starting out in the AI field or you have some experience but are curious about the inner workings of these advanced models, this series aims to provide clear, practical insights that will help you understand and work with LLMs effectively.
 
