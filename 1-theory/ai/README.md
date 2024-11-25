@@ -7,8 +7,8 @@ In this series, we'll explore the foundations of LLMs, dive into how they are tr
 
 Below, you'll find a list of all the articles in this series. Each link will take you one step closer to mastering the art of working with LLMs.
 
-[1. Introduction to Artificial Intelligence](1.%20Introduction%20to%20Artificial%20Intelligence.md)
-[2. Exploring the Types of Artificial Intelligence.md](2.%20Exploring%20the%20Types%20of%20Artificial%20Intelligence.md)
+1. [Introduction to Artificial Intelligence](1.%20Introduction%20to%20Artificial%20Intelligence.md)
+2. [Exploring the Types of Artificial Intelligence.md](2.%20Exploring%20the%20Types%20of%20Artificial%20Intelligence.md)
 
 Stay tuned as we continue to unlock the full potential of LLMs, one post at a time.
 
