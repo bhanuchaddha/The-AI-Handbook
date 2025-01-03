@@ -25,7 +25,7 @@ AI is evolving rapidly, and staying updated with the latest trends is essential.
 
 | **Section**                     | **Description**                                                                 | **Link**                                               |
 |----------------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------|
-| **Trending LLM Applications**   | Discover trending applications built on Large Language Models.                  | [Explore LLM Applications](llm-applications/README.md) |
+| **Trending LLM Applications**   | Discover trending applications built on Large Language Models.                  | [Explore LLM Applications](LLM-Applications/README.md) |
 | **Trending Frameworks**         | Explore frameworks that empower scalable and efficient AI development.          | Coming Soon                                           |
 | **Trending Tools**              | Find tools to enhance productivity in AI workflows.                             | Coming Soon                                           |
 | **Trending AI Agents**          | Learn about agents demonstrating autonomous decision-making capabilities.       | Coming Soon                                           |
