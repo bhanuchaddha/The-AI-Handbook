@@ -1,3 +1,8 @@
 **/uv.lock
 **/.env
 **/**.cpython-312.pyc
+**/.venv/
+**/.venv/**
+**/.python-version
+**/.DS_Store
+4-AI-Agents/chat_with_apis/test/data/deepseek.fld/filelist.xml
