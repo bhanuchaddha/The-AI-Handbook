@@ -20,4 +20,6 @@ dependencies = [
     "llama-index-readers-docling>=0.3.0",
     "llama-index-node-parser-docling>=0.3.0",
     "llama-index-llms-huggingface-api>=0.3.1",
+    "qdrant-client>=1.13.2",
+    "llama-index-vector-stores-qdrant>=0.4.3",
 ]

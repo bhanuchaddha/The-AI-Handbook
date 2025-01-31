@@ -7,10 +7,21 @@ import pandas as pd
 import streamlit as st
 from io import BytesIO
 from tools.rag_tool import RagTool
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 if "id" not in st.session_state:
     st.session_state.id = uuid.uuid4()
     st.session_state.file_cache = {}
+    logging.info("Initializing new session")
+
+if "rag_tool" not in st.session_state:
+    st.session_state.rag_tool = RagTool()
 
 def reset_chat():
     st.session_state.messages = []
@@ -32,29 +43,26 @@ with st.sidebar:
     uploaded_file = st.file_uploader("Choose your `.pdf` file", type=["pdf"])
 
     if uploaded_file:
+        file_name = uploaded_file.name
+        logging.info(f"Processing uploaded file: {file_name}")
+        
         try:
             with tempfile.TemporaryDirectory() as temp_dir:
-                file_path = os.path.join(temp_dir, uploaded_file.name)
+                file_path = os.path.join(temp_dir, file_name)
                 with open(file_path, "wb") as f:
                     f.write(uploaded_file.getvalue())
                 
-                file_key = f"{st.session_state.id}-{uploaded_file.name}"
-                st.write("Indexing your document...")
+                status_placeholder = st.empty()
+                status_placeholder.info(f"Processing document: {file_name}")
+                
+                query_engine = st.session_state.rag_tool.process_document(temp_dir)
+                st.session_state.current_query_engine = query_engine
 
-                if file_key not in st.session_state.get('file_cache', {}):
-                    if not os.path.exists(temp_dir):
-                        st.error('Could not find the file you uploaded, please check again...')
-                        st.stop()
-                    
-                    rag_tool = RagTool()
-                    query_engine = rag_tool.process_document(temp_dir)
-                    st.session_state.file_cache[file_key] = query_engine
-                else:
-                    query_engine = st.session_state.file_cache[file_key]
-
+                # Status will be logged by RagTool
                 st.success("Ready to Chat!")
-                # display_pdf(uploaded_file)
+                
         except Exception as e:
+            logging.exception("Error processing document")
             st.error(f"An error occurred: {e}")
             st.stop()
 
