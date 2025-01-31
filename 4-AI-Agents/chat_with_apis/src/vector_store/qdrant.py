@@ -7,7 +7,7 @@ import logging
 import hashlib
 
 class QdrantStore:
-    def __init__(self, collection_name: str = "pdf_documents", embed_dimension: int = 1024):
+    def __init__(self, collection_name: str = "document_store", embed_dimension: int = 1024):
         self.collection_name = collection_name
         self.embed_dimension = embed_dimension
         self.qdrant_client = qdrant_client.QdrantClient(

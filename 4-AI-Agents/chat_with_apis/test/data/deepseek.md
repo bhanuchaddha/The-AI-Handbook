@@ -1,0 +1,1 @@
+Initial Training with Reinforcement Learning: The development began with DeepSeek-R1-Zero, which was trained exclusively using Group Relative Policy Optimization (GRPO), a reinforcement learning technique. This approach focused on logical inference, mathematical reasoning, and real-time problem-solving without any supervised fine-tuning (SFT).
