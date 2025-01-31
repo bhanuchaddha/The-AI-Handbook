@@ -3,21 +3,15 @@ from llama_index.core import (
     VectorStoreIndex, 
     SimpleDirectoryReader, 
     PromptTemplate, 
-    StorageContext,
-    Document,
-    ServiceContext
+    Document
 )
 from llama_index.llms.ollama import Ollama
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.readers.docling import DoclingReader
 from llama_index.core.node_parser import MarkdownNodeParser
-from llama_index.vector_stores.qdrant import QdrantVectorStore
-import qdrant_client
-import hashlib
 import logging
 import datetime
-from qdrant_client.http import models as qdrant_models
-from qdrant_client.http.models import Distance, VectorParams, PointStruct
+from vector_store.qdrant import QdrantStore
 
 class RagTool:
     def __init__(self):
@@ -36,76 +30,9 @@ class RagTool:
             "Query: {query_str}\n"
             "Answer: "
         ))
-        self.collection_name = "pdf_documents"
         
-        # Configure Qdrant with explicit vector parameters
-        self.qdrant_client = qdrant_client.QdrantClient(
-            host="localhost",
-            port=6333
-        )
-        
-        # Get embedding dimension from the model
-        self.embed_dimension = 1024  # BGE-large dimension
-        
-        self._ensure_collection_exists()
-        
-        self.vector_store = QdrantVectorStore(
-            client=self.qdrant_client,
-            collection_name=self.collection_name,
-        )
-        
-        self.storage_context = StorageContext.from_defaults(
-            vector_store=self.vector_store
-        )
-
-    def _ensure_collection_exists(self):
-        """Initialize Qdrant collection if it doesn't exist"""
-        try:
-            collections = self.qdrant_client.get_collections().collections
-            exists = any(col.name == self.collection_name for col in collections)
-            if not exists:
-                self.qdrant_client.create_collection(
-                    collection_name=self.collection_name,
-                    vectors_config=VectorParams(
-                        size=self.embed_dimension,
-                        distance=Distance.COSINE
-                    )
-                )
-                logging.info(f"Created new collection: {self.collection_name}")
-        except Exception as e:
-            logging.error(f"Error creating collection: {e}")
-            raise
-
-    def _get_document_hash(self, content: str) -> str:
-        """Generate unique hash for document content"""
-        return hashlib.md5(content.encode()).hexdigest()
-
-    def is_document_indexed(self, file_name: str, content: str) -> bool:
-        """Check if document is already indexed in Qdrant"""
-        doc_hash = self._get_document_hash(content)
-        try:
-            # Use payload API for more reliable metadata search
-            points = self.qdrant_client.scroll(
-                collection_name=self.collection_name,
-                scroll_filter=qdrant_models.Filter(
-                    must=[
-                        qdrant_models.FieldCondition(
-                            key="doc_hash",  # Remove metadata. prefix
-                            match={"value": doc_hash}
-                        )
-                    ]
-                ),
-                limit=1,
-                with_payload=True
-            )[0]
-            
-            exists = len(points) > 0
-            if exists:
-                logging.info(f"Document already indexed: {file_name} (hash: {doc_hash})")
-            return exists
-        except Exception as e:
-            logging.error(f"Error checking document index: {e}")
-            return False
+        self.qdrant_store = QdrantStore()
+        self.storage_context = self.qdrant_store.storage_context
 
     def process_document(self, temp_dir):
         reader = DoclingReader()
@@ -119,12 +46,11 @@ class RagTool:
         new_docs = []
         for doc in docs:
             file_name = doc.metadata.get('file_name', 'unknown')
-            doc_hash = self._get_document_hash(doc.text)
             
-            if not self.is_document_indexed(file_name, doc.text):
+            if not self.qdrant_store.is_document_indexed(file_name, doc.text):
                 # Add metadata for tracking
                 doc.metadata.update({
-                    "doc_hash": doc_hash,
+                    "doc_hash": self.qdrant_store._get_document_hash(doc.text),
                     "file_name": file_name,
                     "indexed_at": datetime.datetime.now().isoformat(),
                 })
@@ -138,7 +64,7 @@ class RagTool:
             if self.index is None:
                 try:
                     self.index = VectorStoreIndex.from_vector_store(
-                        vector_store=self.vector_store
+                        vector_store=self.qdrant_store.vector_store
                     )
                     logging.info("Loaded existing index from vector store")
                 except Exception as e:
