@@ -1,0 +1,23 @@
+[project]
+name = "chat-with-apis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "llama-index-core>=0.12.14",
+    "llama-index-embeddings-huggingface>=0.5.1",
+    "llama-index-llms-ollama>=0.5.0",
+    "llama-index-readers-file>=0.4.4",
+    "pydantic>=2.10.6",
+    "pymupdf>=1.25.2",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "streamlit>=1.41.1",
+    "crewai>=0.16.1",
+    "langchain>=0.1.0",
+    "langchain-experimental>=0.0.47",
+    "llama-index-readers-docling>=0.3.0",
+    "llama-index-node-parser-docling>=0.3.0",
+    "llama-index-llms-huggingface-api>=0.3.1",
+]
