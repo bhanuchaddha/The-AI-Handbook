@@ -1,5 +1,5 @@
 [project]
-name = "chat-with-apis"
+name = "chat_with_any_doc_with_lamaindex_and_qdrant"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -19,8 +19,6 @@ dependencies = [
     "langchain-experimental>=0.0.47",
     "llama-index-readers-docling>=0.3.0",
     "llama-index-node-parser-docling>=0.3.0",
-    "llama-index-llms-huggingface-api>=0.3.1",
     "qdrant-client>=1.13.2",
     "llama-index-vector-stores-qdrant>=0.4.3",
-    "docx2txt>=0.8",
 ]
