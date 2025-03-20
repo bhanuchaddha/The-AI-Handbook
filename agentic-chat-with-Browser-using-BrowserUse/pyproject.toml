@@ -1,0 +1,11 @@
+[project]
+name = "agentic-chat-with-browser-using-browseruse"
+version = "0.1.0"
+description = "A Streamlit application that interacts with a browser agent using the Browser Use library."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit",
+    "browser-use",
+    "playwright"
+]

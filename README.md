@@ -15,6 +15,7 @@ This handbook is a collection of AI agent implementations using various framewor
 | Project Name | Description | Link |
 |-------------|-------------|------|
 | Advance RAG with LlamaIndex | Retrieval-augmented generation implementation using LlamaIndex | [advance-rag-with-lamaindex](advance-rag-with-lamaindex/) |
+| Agentic Chat with Browser | Browser automation agent with chat interface using BrowserUse | [agentic-chat-with-Browser-using-BrowserUse](agentic-chat-with-Browser-using-BrowserUse/) |
 | Automatic Event Planner | AI-powered system for planning and organizing events | [automatic_event_planner](automatic_event_planner/) |
 | Automatic Project Estimation | Tool for estimating project timelines and resources | [automatic_project_estimation](automatic_project_estimation/) |
 | Blog Researcher & Writer | AI agent that researches topics and writes blog content | [blog_researcher_and_writer](blog_researcher_and_writer/) |
