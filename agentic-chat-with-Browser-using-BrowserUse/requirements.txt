@@ -1,0 +1,9 @@
+streamlit>=1.30.0
+browser-use>=0.1.0
+playwright>=1.40.0
+python-dotenv>=1.0.0
+langchain>=0.1.0
+langchain-openai>=0.0.2
+langchain-anthropic>=0.1.1
+# Add a line to show exact browser-use version - helps with debugging API changes
+pip freeze | grep browser-use
