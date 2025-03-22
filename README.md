@@ -14,15 +14,15 @@ This handbook is a collection of AI agent implementations using various framewor
 
 | #  | Project Name                  | Description                                           | Link                                                                 |
 |----|-------------------------------|-------------------------------------------------------|----------------------------------------------------------------------|
-| 1  | RAG with MongoDB & LlamaIndex | Notebook demonstrating agentic RAG implementation    | [1-agentic_RAG_with_MongoDB_and_LamaIndex](1-agentic_RAG_with_MongoDB_and_LamaIndex/) |
-| 2  | Retail Arrangement Analysis   | Tool for analyzing retail spaces and arrangements     | [2-retail_arrangement_analysis_agent](2-retail_arrangement_analysis_agent/)         |
-| 3  | Customer Care Support         | AI agent for handling customer service interactions   | [3-customer_care_support](3-customer_care_support/)                                 |
-| 4  | Resume & Interview Preparer   | Assistant for resume creation and interview preparation | [4-resume_and_interview_preparer](4-resume_and_interview_preparer/)                 |
-| 5  | Blog Researcher & Writer      | AI agent that researches topics and writes blog content | [5-blog_researcher_and_writer](5-blog_researcher_and_writer/)                       |
-| 6  | Customer Research & Marketing | Agent for customer research and campaign creation     | [6-customer_research_and_marketing_campaign_creator](6-customer_research_and_marketing_campaign_creator/) |
-| 7  | Financial Analyst             | AI-powered financial data analysis and reporting      | [7-financial_analyst](7-financial_analyst/)                                         |
-| 8  | Health & Fitness Coach        | Personalized health and fitness recommendations       | [8-health_and_fitness_coach](8-health_and_fitness_coach/)                           |
-| 9  | Chat with PDF Files           | PDF-based chat interface using Embedchain            | [9-chat_with_pdf_files_with_embedchain](9-chat_with_pdf_files_with_embedchain/)     |
+| 1  | RAG with MongoDB & LlamaIndex | Notebook demonstrating agentic RAG implementation    | [01-agentic_RAG_with_MongoDB_and_LamaIndex](01-agentic_RAG_with_MongoDB_and_LamaIndex/) |
+| 2  | Retail Arrangement Analysis   | Tool for analyzing retail spaces and arrangements     | [02-retail_arrangement_analysis_agent](02-retail_arrangement_analysis_agent/)         |
+| 3  | Customer Care Support         | AI agent for handling customer service interactions   | [03-customer_care_support](03-customer_care_support/)                                 |
+| 4  | Resume & Interview Preparer   | Assistant for resume creation and interview preparation | [04-resume_and_interview_preparer](04-resume_and_interview_preparer/)                 |
+| 5  | Blog Researcher & Writer      | AI agent that researches topics and writes blog content | [05-blog_researcher_and_writer](05-blog_researcher_and_writer/)                       |
+| 6  | Customer Research & Marketing | Agent for customer research and campaign creation     | [06-customer_research_and_marketing_campaign_creator](06-customer_research_and_marketing_campaign_creator/) |
+| 7  | Financial Analyst             | AI-powered financial data analysis and reporting      | [07-financial_analyst](07-financial_analyst/)                                         |
+| 8  | Health & Fitness Coach        | Personalized health and fitness recommendations       | [08-health_and_fitness_coach](08-health_and_fitness_coach/)                           |
+| 9  | Chat with PDF Files           | PDF-based chat interface using Embedchain            | [09-chat_with_pdf_files_with_embedchain](09-chat_with_pdf_files_with_embedchain/)     |
 | 10 | Automatic Event Planner       | AI-powered system for planning and organizing events  | [10-automatic_event_planner](10-automatic_event_planner/)                           |
 | 11 | Chat with Many Docs           | Multi-document chat system using DeepSeek, LlamaIndex and Qdrant | [11-chat_with_many_docs_with_deepseek_lamaindex_and_qdrant](11-chat_with_many_docs_with_deepseek_lamaindex_and_qdrant/) |
 | 12 | Automatic Project Estimation  | Tool for estimating project timelines and resources   | [12-automatic_project_estimation](12-automatic_project_estimation/)                 |
