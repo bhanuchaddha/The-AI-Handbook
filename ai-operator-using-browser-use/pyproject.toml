@@ -1,5 +1,5 @@
 [project]
-name = "agentic-chat-with-browser-using-browseruse"
+name = "ai-operator-using-browser-use"
 version = "0.1.0"
 description = "A Streamlit application that interacts with a browser agent using the Browser Use library."
 readme = "README.md"

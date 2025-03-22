@@ -14,10 +14,27 @@ class BrowserAgent:
     A class that implements browser agent functionality using the Browser Use library.
     """
     
-    def __init__(self):
+    def __init__(self, provider="openai", model=None, api_key=None):
         """
         Initialize the browser agent with Browser Use components.
+        
+        Args:
+            provider (str): The LLM provider to use.
+            model (str): The specific model to use.
+            api_key (str): Optional API key for the provider.
         """
+        self.provider = provider
+        self.model = model
+        
+        # Store API key in environment if provided
+        if api_key:
+            if provider == "openai":
+                os.environ["OPENAI_API_KEY"] = api_key
+            elif provider == "anthropic":
+                os.environ["ANTHROPIC_API_KEY"] = api_key
+            elif provider == "deepseek":
+                os.environ["DEEPSEEK_API_KEY"] = api_key
+        
         self.controller = Controller()
         
         # Configure browser to use the system's Chrome instance
@@ -25,10 +42,8 @@ class BrowserAgent:
         
         try:
             # Set up browser configuration with only supported parameters
-            # Use proper parameter name for Chrome path
             browser_config = BrowserConfig(
                 chrome_instance_path=chrome_path
-                # Removed user_data_dir as it's not a supported parameter
             )
             
             # Initialize browser with custom configuration
@@ -54,12 +69,13 @@ class BrowserAgent:
         """
         asyncio.run(self.close())
     
-    def get_llm(self, provider="openai"):
+    def get_llm(self, provider="openai", model=None):
         """
-        Get the language model based on the specified provider.
+        Get the language model based on the specified provider and model.
         
         Args:
-            provider (str): The LLM provider to use ('openai' or 'anthropic').
+            provider (str): The LLM provider to use ('openai', 'anthropic', 'deepseek', 'ollama').
+            model (str): The specific model to use.
             
         Returns:
             The language model instance.
@@ -70,37 +86,50 @@ class BrowserAgent:
             if not api_key:
                 raise ValueError("Error: ANTHROPIC_API_KEY is not set. Please provide a valid API key.")
             
-            return ChatAnthropic(
-                model_name='claude-3-5-sonnet-20240620', timeout=25, stop=None, temperature=0.0
-            )
+            return ChatAnthropic(model_name=model, timeout=25, stop=None, temperature=0.0)
         elif provider == 'openai':
             from langchain_openai import ChatOpenAI
             api_key = os.getenv("OPENAI_API_KEY")
             if not api_key:
                 raise ValueError("Error: OPENAI_API_KEY is not set. Please provide a valid API key.")
             
-            return ChatOpenAI(model='gpt-4o-mini', temperature=0.0)
+            return ChatOpenAI(model=model, temperature=0.0)
+        elif provider == 'deepseek':
+            from deepseek import DeepSeekClient
+            api_key = os.getenv("DEEPSEEK_API_KEY")
+            if not api_key:
+                raise ValueError("Error: DEEPSEEK_API_KEY is not set. Please provide a valid API key.")
+            
+            return DeepSeekClient(model=model, api_key=api_key)
+        elif provider == 'ollama':
+            from ollama import OllamaClient
+            return OllamaClient(model=model)
         else:
             raise ValueError(f'Unsupported provider: {provider}')
         
-    async def execute_instruction(self, instruction, provider="openai", max_steps=25):
+    async def execute_instruction(self, instruction, provider=None, model=None, max_steps=25):
         """
         Execute a browser instruction and return the result.
         
         Args:
             instruction (str): The instruction to execute.
             provider (str): The LLM provider to use.
+            model (str): The specific model to use.
             max_steps (int): Maximum number of steps for the agent to take.
             
         Returns:
             object: The history object from the agent execution.
         """
+        # Use instance provider/model if not specified
+        provider = provider or self.provider
+        model = model or self.model
+        
         # Sanitize user input for security
         clean_instruction = sanitize_input(instruction)
         
         try:
             # Initialize the LLM based on the provider
-            llm = self.get_llm(provider)
+            llm = self.get_llm(provider, model)
             
             # Initialize the Agent with the configured browser
             self.agent = Agent(

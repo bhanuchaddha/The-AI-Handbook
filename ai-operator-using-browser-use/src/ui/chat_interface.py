@@ -2,23 +2,17 @@ import streamlit as st
 import asyncio
 import re
 from src.browser_agent.agent import BrowserAgent
+from src.ui.model_sidebar import ModelSidebar
 
 class ChatInterface:
     """
     A class that implements the Streamlit chat interface for the browser agent.
     """
     
-    def __init__(self, browser_agent, provider="openai"):
+    def __init__(self):
         """
-        Initialize the chat interface with a browser agent.
-        
-        Args:
-            browser_agent (BrowserAgent): The browser agent to use.
-            provider (str): The LLM provider to use.
+        Initialize the chat interface.
         """
-        self.browser_agent = browser_agent
-        self.provider = provider
-        
         # Initialize session state for chat history if it doesn't exist
         if "messages" not in st.session_state:
             st.session_state.messages = []
@@ -27,6 +21,17 @@ class ChatInterface:
         """
         Run the chat interface.
         """
+        # Render the sidebar and get the selected configuration
+        sidebar = ModelSidebar()
+        model_config = sidebar.render()
+        
+        # Initialize browser agent with selected configuration
+        browser_agent = BrowserAgent(
+            provider=model_config["provider"],
+            model=model_config["model"],
+            api_key=model_config["api_key"]
+        )
+        
         # Display chat history
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
@@ -48,7 +53,7 @@ class ChatInterface:
                     
                     # Define the async function to execute the instruction
                     async def execute_async_instruction():
-                        result = await self.browser_agent.execute_instruction(prompt, provider=self.provider)
+                        result = await browser_agent.execute_instruction(prompt, provider=model_config["provider"], max_steps=25)
                         
                         # Check if result is a string (error or legacy response)
                         if isinstance(result, str):
