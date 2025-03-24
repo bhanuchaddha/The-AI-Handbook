@@ -1,5 +1,8 @@
 # AI Operator Using Browser-Use
 
+[![YouTube Video](https://img.youtube.com/vi/y19HLcPLbKc/0.jpg)](https://www.youtube.com/watch?v=y19HLcPLbKc)
+
+
 This project is a Python application that utilizes Streamlit as a user interface to send chat instructions to an AI browser agent using the Browser Use library. It allows users to interact with AI-powered browser automation capabilities and receive responses in real-time.
 
 ## Table of Contents
