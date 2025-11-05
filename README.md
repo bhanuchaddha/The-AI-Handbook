@@ -1,36 +1,35 @@
-# 🌟 The AI Handbook: Building Intelligent AI Agents 🌟
+# The AI Handbook: Building Intelligent AI Agents
 
-Welcome to **The AI Handbook**—a comprehensive resource focused on building practical AI agents for real-world applications. This repository provides ready-to-use AI agent implementations that you can adapt for your own projects. From customer support to content generation, financial analysis to health coaching, these agents demonstrate the power and versatility of modern AI technologies. 🚀
+Welcome to **The AI Handbook**—a comprehensive resource focused on building practical AI agents for real-world applications. This repository provides ready-to-use AI agent implementations that you can adapt for your own projects. From customer support to content generation, financial analysis to health coaching, these agents demonstrate the power and versatility of modern AI technologies.
 
 ---
 
-## 🌐 **Repository Overview**
+## Repository Overview
 
 This handbook is a collection of AI agent implementations using various frameworks and models, designed to solve specific problems across different domains. Each project includes detailed code, explanations, and instructions to help you understand and leverage these AI capabilities.
 
 ---
 
-## 📂 **AI Agent Projects Index**
+## AI Agent Projects Index
 
-| #  | Project Name                  | Description                                           | Link                                                                 |
-|----|-------------------------------|-------------------------------------------------------|----------------------------------------------------------------------|
-| 1  | RAG with MongoDB & LlamaIndex | Notebook demonstrating agentic RAG implementation    | [01-agentic_RAG_with_MongoDB_and_LamaIndex](01-agentic_RAG_with_MongoDB_and_LamaIndex/) |
-| 2  | Retail Arrangement Analysis   | Tool for analyzing retail spaces and arrangements     | [02-retail_arrangement_analysis_agent](02-retail_arrangement_analysis_agent/)         |
-| 3  | Customer Care Support         | AI agent for handling customer service interactions   | [03-customer_care_support](03-customer_care_support/)                                 |
-| 4  | Resume & Interview Preparer   | Assistant for resume creation and interview preparation | [04-resume_and_interview_preparer](04-resume_and_interview_preparer/)                 |
-| 5  | Blog Researcher & Writer      | AI agent that researches topics and writes blog content | [05-blog_researcher_and_writer](05-blog_researcher_and_writer/)                       |
-| 6  | Customer Research & Marketing | Agent for customer research and campaign creation     | [06-customer_research_and_marketing_campaign_creator](06-customer_research_and_marketing_campaign_creator/) |
-| 7  | Financial Analyst             | AI-powered financial data analysis and reporting      | [07-financial_analyst](07-financial_analyst/)                                         |
-| 8  | Health & Fitness Coach        | Personalized health and fitness recommendations       | [08-health_and_fitness_coach](08-health_and_fitness_coach/)                           |
-| 9  | Chat with PDF Files           | PDF-based chat interface using Embedchain            | [09-chat_with_pdf_files_with_embedchain](09-chat_with_pdf_files_with_embedchain/)     |
-| 10 | Automatic Event Planner       | AI-powered system for planning and organizing events  | [10-automatic_event_planner](10-automatic_event_planner/)                           |
-| 11 | Chat with Many Docs           | Multi-document chat system using DeepSeek, LlamaIndex and Qdrant | [11-chat_with_many_docs_with_deepseek_lamaindex_and_qdrant](11-chat_with_many_docs_with_deepseek_lamaindex_and_qdrant/) |
-| 12 | Automatic Project Estimation  | Tool for estimating project timelines and resources   | [12-automatic_project_estimation](12-automatic_project_estimation/)                 |
-| 13 | AI Operator with BrowserUse    | Browser automation agent with chat interface using BrowserUse | [13-ai-operator-using-browser-use](13-ai-operator-using-browser-use/)               |
+1.  **[RAG with MongoDB & LlamaIndex](01-agentic_RAG_with_MongoDB_and_LamaIndex/)**: Notebook demonstrating agentic RAG implementation.
+2.  **[Retail Arrangement Analysis](02-retail_arrangement_analysis_agent/)**: Tool for analyzing retail spaces and arrangements.
+3.  **[Customer Care Support](03-customer_care_support/)**: AI agent for handling customer service interactions.
+4.  **[Resume & Interview Preparer](04-resume_and_interview_preparer/)**: Assistant for resume creation and interview preparation.
+5.  **[Blog Researcher & Writer](05-blog_researcher_and_writer/)**: AI agent that researches topics and writes blog content.
+6.  **[Customer Research & Marketing](06-customer_research_and_marketing_campaign_creator/)**: Agent for customer research and campaign creation.
+7.  **[Financial Analyst](07-financial_analyst/)**: AI-powered financial data analysis and reporting.
+8.  **[Health & Fitness Coach](08-health_and_fitness_coach/)**: Personalized health and fitness recommendations.
+9.  **[Chat with PDF Files](09-chat_with_pdf_files_with_embedchain/)**: PDF-based chat interface using Embedchain.
+10. **[Automatic Event Planner](10-automatic_event_planner/)**: AI-powered system for planning and organizing events.
+11. **[Chat with Many Docs](11-chat_with_many_docs_with_deepseek_lamaindex_and_qdrant/)**: Multi-document chat system using DeepSeek, LlamaIndex and Qdrant.
+12. **[Automatic Project Estimation](12-automatic_project_estimation/)**: Tool for estimating project timelines and resources.
+13. **[AI Operator with BrowserUse](13-ai-operator-using-browser-use/)**: Browser automation agent with chat interface using BrowserUse.
+14. **[MCP Server From Any API](14-mcp-server-from-any-api/)**: Convert any FastAPI application into a Model Context Protocol (MCP) server.
 
 ---
 
-## 🚀 **Getting Started**
+## Getting Started
 
 1. **Clone the Repository**:
    ```bash
@@ -48,7 +47,7 @@ This handbook is a collection of AI agent implementations using various framewor
 
 ---
 
-## 🛠️ **Common Requirements**
+## Common Requirements
 
 Most projects in this repository use:
 - Python 3.8+
@@ -57,7 +56,7 @@ Most projects in this repository use:
 
 ---
 
-## 🤝 **Contributing**
+## Contributing
 
 We welcome contributions to make this collection of AI agents even better! To contribute:
 1. Fork the repository
@@ -67,19 +66,19 @@ We welcome contributions to make this collection of AI agents even better! To co
 
 ---
 
-## 📜 **License**
+## License
 
 This repository is licensed under the [MIT License](LICENSE.txt).
 
 ---
 
-## 📞 **Contact**
+## Contact
 
 Have questions or suggestions? Feel free to reach out:
 
-- 🌐 [LinkedIn](https://linkedin.com/in/bhanuchaddha)
+- [LinkedIn](https://linkedin.com/in/bhanuchaddha)
 
 ---
 
-We hope **The AI Handbook** empowers you to build intelligent, useful AI agents for your own projects and applications. 🌟
+We hope **The AI Handbook** empowers you to build intelligent, useful AI agents for your own projects and applications.
 
